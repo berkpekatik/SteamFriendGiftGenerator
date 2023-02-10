@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SteamFriendGiftGenerator</title>
+
+    <link href="https://community.cloudflare.steamstatic.com/public/shared/css/motiva_sans.css?v=GfSjbGKcNYaQ&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/shared/css/buttons.css?v=uR_4hRD_HUln&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/shared/css/shared_global.css?v=oFxkES9LSLOw&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/css/globalv2.css?v=_B4lAraJ1uky&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/css/skin_1/economy.css?v=wliPEsKn4dhI&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/css/skin_1/economy_inventory.css?v=xPlN33nO84Qg&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/css/skin_1/profilev2.css?v=3y90VjwIbhlO&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/css/skin_1/gamecard_crafting.css?v=hA_fecpTLKMF&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/shared/css/shared_responsive.css?v=pqJ4scPK8PIv&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+    <link href="https://community.cloudflare.steamstatic.com/public/css/skin_1/header.css?v=kSY7-qhkPHds&amp;l=turkish&amp;_cdn=cloudflare" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - SteamFriendGiftGenerator
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

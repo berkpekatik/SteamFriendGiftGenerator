@@ -1,0 +1,185 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    form {
+        background-color: #1B2838;
+    }
+
+        form input[type=text], select {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        form input[type=submit] {
+            width: 40%;
+            background-color: #45a049;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    textarea {
+        width: 40%;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #1B2838;
+        resize: none;
+    }
+
+    form input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+    form div {
+        border-radius: 5px;
+        background-color: #1B2838;
+        padding-left: 12px;
+    }
+</style>
+<div class="container">
+    <form method="post">
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label for="steamID">SteamID</label><br />
+                <input type="text" class="form-control" id="steamID" name="steamID" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="appID">App ID</label><br />
+                <input type="text" class="form-control" id="appID" name="appID" required>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="note">Note</label><br />
+                <textarea rows="3" class="form-control" id="note" name="note"></textarea>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="senderName">Custom Sender Name</label><br />
+                <input type="text" class="form-control" id="senderName" name="senderName">
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Create" />
+        </div>
+    </form>
+</div>
+<div class="maincontent">
+    <div id="tabcontent_pendinggifts" class="" style="">
+        <br />
+        <div class="pending_gift pending_gift_template_0">
+
+            <div id="unpacked_gift_3281471322489338657" style="display: none;">
+                <div class="accepted_gift_info content">
+                    <b >@Model.gameName</b> hesabınıza eklendi.			Steam istemcisini bir sonraki açışınızda kütüphaneden indirebilir ve oynayabilirsiniz.
+                </div>
+            </div>
+            <div id="accepted_gift_3281471322489338657" style="display: none;">
+                <div class="accepted_gift_info content">
+                    <b >@Model.gameName</b> kabul edildi ve şimdi <a class="underlined" id="accepted_gift_link_3281471322489338657" href="https://steamcommunity.com/profiles/76561198313874008/inventory/">Steam envanterinizde</a>.
+                </div>
+            </div>
+
+            <div id="decline_gift_prompt_3281471322489338657" style="display: none;">
+                <div><b>Bu hediyeyi reddetmek üzeresiniz:</b></div>
+                <h2 >@Model.gameName</h2>
+
+                <p>
+                    ShockingDead için bir not içersin:: <i></i>
+                </p><div class="gray_bevel fullwidth">
+                    <textarea></textarea>
+                </div>
+                <p></p>
+            </div>
+            <div id="declined_gift_3281471322489338657" style="display: none;">
+                <div class="accepted_gift_info content">
+                    <b >@Model.gameName</b> reddedildi ve <a class="giftProfile" href="@Model.giftProfile">@Model.gifterName</a> adlı kullanıcının envanterine iade edildi.
+                </div>
+            </div>
+
+            <div id="pending_gift_3281471322489338657">
+                <div class="pending_gift_leftcol">
+                    <div class="inventory_iteminfo pendinggift_iteminfo" id="pending_gift_iteminfo_3281471322489338657" style="border-color: rgb(60, 108, 150);">
+                        <div class="item_desc_content app753 context1" id="pending_gift_iteminfo_3281471322489338657_content">
+                            <div class="item_desc_icon">
+                                <div class="item_desc_icon_center">
+                                    <img id="gamePic" src="@Model.gamePic">
+                                </div>
+                            </div>
+                            <div class="item_desc_description">
+                                <h1 class="hover_item_name gameName" style="color: rgb(60, 108, 150);">@Model.gameName</h1>
+                                <div class="item_desc_game_info" id="pending_gift_iteminfo_3281471322489338657_game_info">
+                                    <div class="item_desc_game_icon">
+                                        <img id="pending_gift_iteminfo_3281471322489338657_game_icon" src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/753/135dc1ac1cd9763dfc8ad52f4e880d2ac058a36c.jpg" alt="Steam">
+                                    </div>
+                                    <div id="pending_gift_iteminfo_3281471322489338657_game_name" class="ellipsis">Steam</div>
+                                    <div id="pending_gift_iteminfo_3281471322489338657_item_type" class="">Hediye</div>
+                                </div>
+                                <div class="item_desc_descriptors" id="gameExplain"><div class="descriptor">@Model.gameExplain</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pending_gift_rightcol">
+                    <div class="content gift_message">
+                        @Model.gift_message
+                        <div class="signature_line">
+                            <div class="playerAvatar  online" data-miniprofile="59722160">
+                                <a href="@Model.giftProfile" class="giftProfile">
+                                    <img src="@Model.giftAvatar" id="giftAvatar">
+                                </a>
+                            </div>
+                            <p id="signature">@Model.signature</p>
+                            <div style="clear: left;"></div>
+                        </div>
+                    </div>
+                    <div class="content gift_controls">
+                        <p>
+                            <a href="@Model.giftProfile" data-miniprofile="59722160" class="giftProfile">@Model.gifterName</a> tarafından <text id="giftDate">@Model.giftDate</text> tarihinde
+                        </p>
+                        <p class="gift_status">
+                            Durum: Kabul Edilmedi
+                        </p>
+                        <div class="gift_controls_buttons">
+                            <div id="gift3281471322489338657_step_init">
+                                <!-- non-tradable gifts must be accepted directly to library or declined, they cannot be moved to inventory -->
+                                <div class="btn_medium btn_green_white_innerfade" onclick="">
+                                    <span>Hediyeyi kabul et</span>
+                                </div>
+                                &nbsp;
+                                <div class="btn_medium btn_grey_white_innerfade" onclick="">
+                                    <span>Hediyeyi reddet</span>
+                                </div>
+                            </div>
+                            <div id="gift3281471322489338657_step_wait" style="display: none;">
+                                <p>&nbsp;<img src="https://community.cloudflare.steamstatic.com/public/images/login/throbber.gif">&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="clear: left;"></div>
+            </div>
+        </div>
+
+
+        <div id="gift_history" style="display: none;">
+            <div class="pending_gifts_header">
+                <span>Hediye Geçmişi</span>
+            </div>
+            <div id="gift_history_content">
+                <p><img src="https://community.cloudflare.steamstatic.com/public/images/login/throbber.gif"></p>
+            </div>
+        </div>
+    </div>
+</div>
